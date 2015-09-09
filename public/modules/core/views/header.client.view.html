@@ -1,0 +1,59 @@
+<div class="container" data-ng-controller="HeaderController">
+	<div class="navbar-header">
+		<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a href="/#!/" class="navbar-brand"><img src="/modules/core/img/brand/logo-small.png" alt="logo"></a>
+	</div>
+	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
+		<ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
+			<li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
+				<a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle>
+					<i class="fa fa-users fa-fw" data-ng-show="item.title === 'USUÁRIOS'"></i><br class="hidden-xs">
+					<span data-ng-bind="item.title"></span>
+					<b class="caret"></b>
+				</a>
+				<ul ng-switch-when="dropdown" class="dropdown-menu" dropdown-menu>
+					<li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
+						<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
+					</li>
+				</ul>
+				<a ng-switch-default href="/#!/{{item.link}}">
+					<i class="fa fa-home fa-fw" data-ng-show="item.title === 'HOME'"></i><br class="hidden-xs">
+					<span data-ng-bind="item.title"></span>
+				</a>
+			</li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
+			<li ui-route="/signup" ng-class="{active: $uiRoute}">
+				<a href="/#!/signup">Cadastrar-se</a>
+			</li>
+			<li class="divider-vertical"></li>
+			<li ui-route="/signin" ng-class="{active: $uiRoute}">
+				<a href="/#!/signin">Logar</a>
+			</li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
+			<li class="dropdown" dropdown>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="margin-top: 15px;" dropdown-toggle>
+					<span data-ng-bind="authentication.user.UserName"></span> <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu" dropdown-menu>
+					<li>
+						<a href="/#!/settings/profile">Editar Perfil</a>
+					</li>
+					<li data-ng-show="authentication.user.provider === 'local'">
+						<a href="/#!/settings/password">Mudar Senha</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="/auth/signout">Sair</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</div>

@@ -1,0 +1,23 @@
+<section data-ng-controller="UsersController" data-ng-init="find()">
+	<div class="page-header">
+		<h2 class="page-title text-center">Listar usuários</h2>
+	</div>
+	<div class="list-group">
+		<div data-ng-repeat="userSelected in users" data-ng-href="#!/users/{{userSelected.UserId}}" class="list-group-item usuarioLista">
+			<small class="list-group-item-text">
+				<span data-ng-bind="userSelected.UserName"></span>
+				<div class="pull-right" >
+					<a class="btn btn-primary btn-sm" href="/#!/users/{{userSelected.UserId}}/edit" title="Editar">
+						<i class="glyphicon glyphicon-pencil"></i>
+					</a>
+					<a class="btn btn-danger btn-sm" data-ng-click="remove(user, userSelected);" title="Excluir">
+						<i class="glyphicon glyphicon-trash"></i>
+					</a>
+				</div>
+			</small>
+		</div>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-if="users.$resolved && !users.length">
+		<span>Sem usu&aacute;rios cadastrados no momento.</span>
+	</div>
+</section>

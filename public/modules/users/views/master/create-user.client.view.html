@@ -1,0 +1,62 @@
+<section data-ng-controller="UsersController">
+	<div class="page-header">
+		<h2 class="page-title text-center">Cadastrar usuário</h2>
+	</div>
+	<div class="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+		<div class="row clearfix">
+			<form name="userForm" data-ng-submit="create()" class="form-horizontal" novalidate autocomplete="off">
+				<fieldset>
+					<div class="form-group">
+						<label for="username">Usuário acesso Portal</label>
+						<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.loginName" placeholder="Usuário">
+						<br/>
+					</div>
+					<div class="form-group">
+						<label for="password">Senha</label>
+						<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Senha" ng-minlength="8">
+						<span class="help-block">Mínimo 8 caracteres</span>
+					</div>
+					<div class="form-group">
+						<label for="firstName">Nome</label>
+						<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="Nome">
+					</div>
+					<div class="form-group">
+						<label for="lastName">Sobrenome</label>
+						<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Sobrenome">
+					</div>
+					<div class="form-group">
+						<label for="email">E-mail</label>
+						<input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.emailUser" placeholder="E-mail">
+						<span class="help-block">Ex.: nome@provedor.com.br</span>
+					</div>
+					<div class="form-group">
+						<label>Tipo de usuário</label>
+						<select name="tipo"  class="form-control" required  ng-model="credentials.RoleUser">
+							<option value="">Selecione o Tipo</option>
+							<option value="3">Colaborador</option>
+							<option value="2" data-ng-show="authentication.user.RoleUser === 1">Super</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Data de Expiração</label>
+						<input type="date" id="data" name="data" class="form-control" data-ng-model="credentials.dataExpiracao">
+						<span class="help-block">Para deixar o usuário sempre ativo, não preencha essa data.</span>
+					</div>
+					<div class="form-group" data-ng-show="authentication.user.RoleUser === 1">
+						<label for="password">ID do cliente</label>
+						<input type="text" id="cliente" name="password" class="form-control" data-ng-model="credentials.clientId" placeholder="ID do cliente" ng-required="authentication.user.RoleUser === 1">
+						<span class="help-block">Código do SAC ou RTC.</span>
+					</div>
+
+					<div class="text-center form-group btn-create-user">
+						<a class="btn btn-default btn-lg" href="/">Cancelar</a>
+						<button type="submit" class="btn btn-success btn-lg">Cadastrar</button>
+					</div>
+					<div data-ng-show="error" class="text-center text-danger">
+						<strong data-ng-bind="error"></strong>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</section>

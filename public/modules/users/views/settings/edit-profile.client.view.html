@@ -1,0 +1,35 @@
+<section data-ng-controller="SettingsController">
+	<div class="page-header">
+		<h2 class="page-title text-center">Editar perfil</h2>
+	</div>
+	<div class="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+		<div class="row clearfix">
+			<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="form-horizontal" autocomplete="off">
+				<fieldset>
+					<div class="form-group">
+						<label for="firstName">Nome</label>
+						<input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.UserName" placeholder="Nome" required>
+					</div>
+					<div class="form-group">
+						<label for="lastName">Usuário acesso Portal</label>
+						<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.LoginName" placeholder="Usuário" ng-disabled="user.RoleUser !== 1" required>
+					</div>
+					<div class="form-group">
+						<label for="email">E-mail</label>
+						<input type="email" id="email" name="email" class="form-control" data-ng-model="user.EmailUser" placeholder="E-mail" required>
+					</div>
+					<div class="text-center form-group btn-create-user">
+						<a class="btn btn-default btn-lg" href="/">Cancelar</a>
+						<button type="submit" class="btn btn-success btn-lg">Atualizar perfil</button>
+					</div>
+					<div data-ng-show="success" class="text-center text-success">
+						<strong>Perfil salvo com sucesso!</strong>
+					</div>
+					<div data-ng-show="error" class="text-center text-danger">
+						<strong data-ng-bind="error"></strong>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</section>

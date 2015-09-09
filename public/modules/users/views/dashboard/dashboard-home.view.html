@@ -1,0 +1,70 @@
+<section data-ng-controller="UsersController" data-ng-init="getWidgets()">
+
+    <div class="row" data-ng-show="authentication.user">
+        <div class="col-xs-12 col-xs-offset-0 col-md-12 col-md-offset-0">
+            <div class="row clearfix">
+                <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0" style="padding: 0;">
+                    <h2 class="page-title">Home</h2>
+                </div>
+                <div class="row">
+                    <!--Dashboad-->
+                    <div id="widget-1" class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0 column">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                   {{widget1.name}}
+                                </h3>
+                            </div>
+                            <div class="panel-body" style="overflow-y: auto;">
+                                <!-- conteudo do widget -->
+                                 <iframe class="widget-content" name="frame" ng-src="{{widget1.url}}"  width="460" height="215" frameborder="0" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="widget-2" class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0 column">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    {{widget2.name}}
+                                </h3>
+                            </div>
+                            <div class="panel-body" style="overflow-y: auto;">
+                                <!-- conteudo do widget -->
+                                 <iframe class="widget-content" name="frame" ng-src="{{widget2.url}}"  width="460" height="215" frameborder="0" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="widget-3" class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0 column">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    {{widget3.name}}
+                                </h3>
+                            </div>
+                            <div class="panel-body" style="overflow-y: auto;">
+                                <!-- conteudo do widget -->
+                                 <iframe class="widget-content" name="frame" ng-src="{{widget3.url}}"  width="460" height="215" frameborder="0" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="widget-4" class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0 column">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    {{widget4.name}}
+                                </h3>
+                            </div>
+                            <div class="panel-body" style="overflow-y: auto;" >
+                                <!-- conteudo do widget -->
+                                <iframe class="widget-content" name="frame" ng-src="{{widget4.url}}"  width="460" height="215" frameborder="0" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

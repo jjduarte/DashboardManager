@@ -1,0 +1,47 @@
+<section id="login" class="row" data-ng-controller="AuthenticationController">
+	<div class="col-xs-offset-2 col-xs-8 col-md-offset-2 col-md-8">
+		<form novalidate name="formulario" data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
+			<fieldset>
+
+				<div class="form-group">
+					<span ng-show="submitted && formulario.$invalid && !error.length " class="form-control alert-danger">
+												Campos obrigatórios
+					</span>
+				</div>
+				<div class="form-group">
+					<span ng-show="error.length" class="form-control alert-danger">
+												{{error}}
+					</span>
+				</div>
+			
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<input type="text" id="username" name="username" ng-class="submitted && formulario.username.$error.required ? 'ng-dirty' : ''" class="form-control signin" data-ng-model="credentials.username" placeholder="Usuário" required>
+					</div>
+					<br>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+						<input type="password" id="password" name="password" ng-class="submitted && formulario.password.$error.required ? 'ng-dirty' : ''"  class="form-control signin" data-ng-model="credentials.password" placeholder="Senha" required ng-minlength="8">
+					</div>
+					<br>
+				</div>
+				<div class="forgot-password">
+					<a href="" data-toggle="tooltip" data-placement="top" title="Esqueci a senha" ng-click="showme=true">Esqueci a senha</a>
+				</div>
+				<br>
+				<div  ng-show="showme" class="alert alert-warning">
+					<a href="" class="close" data-dismiss="alert" aria-label="close"  ng-click="showme=false">&times;</a>
+					<strong>Aten&ccedil;&atilde;o!</strong> Para recuperar sua senha, entre em contato com o Administrador da ferramenta.
+				</div>
+				<br>
+				<div class="text-center form-group">
+					<button type="submit" class="btn btn-lg btn-success btn-block" ng-click="submitted=true">Entrar</button>
+				</div>
+				
+			</fieldset>
+		</form>
+	</div>
+</section>

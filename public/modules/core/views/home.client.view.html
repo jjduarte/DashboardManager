@@ -1,0 +1,17 @@
+<section data-ng-controller="HomeController">
+	<div class="jumbotron text-center vertical-center container" data-ng-hide="authentication.user">
+		<div class="row">
+			<div class="col-md-12  col-sm-12  col-xs-12">
+				<a href="/#!/" class="logo-novo">
+					<img alt="BI-SOFTPLAN" class="img-responsive text-center " src="modules/core/img/brand/logo.png" />
+				</a>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="row">
+				<div data-ng-include="'/modules/users/views/authentication/signin.client.view.html'"></div>
+			</div>
+		</div>
+	</div>
+</section>

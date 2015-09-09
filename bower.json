@@ -1,0 +1,21 @@
+{
+  "name": "portal-BI",
+  "version": "1.0.0",
+  "description": "Softplan Sienge Business Intelligence",
+  "dependencies": {
+    "bootstrap": "3.3.5",
+    "angular": "~1.2",
+    "angular-resource": "~1.2",
+    "angular-mocks": "~1.2",
+    "angular-cookies": "~1.2",
+    "angular-animate": "~1.2",
+    "angular-touch": "~1.2",
+    "angular-sanitize": "~1.2",
+    "angular-bootstrap": "~0.12",
+    "angular-ui-utils": "~0.1.1",
+    "angular-ui-router": "~0.2.11",
+    "underscore": "~1.8.3",
+    "angular-underscore-module": "~1.0.1",
+    "fontawesome": "~4.3.0"
+  }
+}
